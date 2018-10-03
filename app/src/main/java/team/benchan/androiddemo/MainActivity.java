@@ -6,8 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MotionEvent;
-import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     MainActivityBinding binding;
     FragmentPagerAdapter pagerAdapter;
     List<Fragment> fragmentArray = new ArrayList<>();
-    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,5 +59,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        binding.viewPagerHeader.setSplitCount(fragmentArray.size());
     }
 }

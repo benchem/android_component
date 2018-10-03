@@ -14,9 +14,21 @@ public class TaskPageIndicator extends LinearLayout {
     private Paint mPaint;
     private Path mPath;
     private int mTranslationX = 0;
-    private final int ITEM_HEIGHT = 10;
-    private float itemWidth = 1/3F;
-    private static final String TAG = "TaskPageIndicator";
+    private int itemHeight = 0;
+    private float itemWidth = 0;
+    private int splitCount = 1;
+
+    public int getSplitCount() {
+        return splitCount;
+    }
+
+    public void setSplitCount(int splitCount) {
+        if(splitCount <= 0) this.splitCount = 1;
+        else this.splitCount = splitCount;
+
+        rebuildItem();
+        invalidate();
+    }
 
     public TaskPageIndicator(Context context) {
         this(context, null);
@@ -32,7 +44,8 @@ public class TaskPageIndicator extends LinearLayout {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        itemWidth = w/3;
+        itemHeight = getHeight();
+        itemWidth = w/getSplitCount();
         rebuildItem();
     }
 
@@ -40,8 +53,8 @@ public class TaskPageIndicator extends LinearLayout {
         mPath = new Path();
         mPath.moveTo(mTranslationX,0);
         mPath.lineTo(mTranslationX + itemWidth, 0);
-        mPath.lineTo(mTranslationX + itemWidth, ITEM_HEIGHT * -1);
-        mPath.lineTo(mTranslationX, ITEM_HEIGHT * -1);
+        mPath.lineTo(mTranslationX + itemWidth, -itemHeight);
+        mPath.lineTo(mTranslationX, -itemHeight);
         mPath.close();
     }
 
@@ -55,7 +68,7 @@ public class TaskPageIndicator extends LinearLayout {
     }
 
     public void scroll(int position, float positionOffset){
-        int tabWidth = getWidth() / 3;
+        int tabWidth = getWidth() / getSplitCount();
         mTranslationX = (int)(tabWidth * (positionOffset + position));
         rebuildItem();
         invalidate();
