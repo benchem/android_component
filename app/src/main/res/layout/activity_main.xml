@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <data class=".MainActivityBinding">
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <team.benchan.androiddemo.component.TaskPageIndicator
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:id="@+id/viewPagerHeader"
+            android:layout_width="match_parent"
+            android:layout_height="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="10dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="10dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="10dp"/>
+
+        </team.benchan.androiddemo.component.TaskPageIndicator>
+        
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </android.support.v4.view.ViewPager>
+
+        
+        
+        <!--<FrameLayout-->
+            <!--android:id="@+id/mainActivityFragment"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--class="team.benchan.androiddemo.component.TaskPageListFragment"-->
+        <!--&gt;</FrameLayout>-->
+
+    </RelativeLayout>
+</layout>
