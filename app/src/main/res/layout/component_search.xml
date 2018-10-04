@@ -3,21 +3,38 @@
     <data>
 
     </data>
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="72dp">
+        android:layout_height="40dp">
 
-        <EditText
-            android:id="@+id/keyword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text" />
+        <ImageView
+            android:layout_height="10dp"
+            android:layout_width="10dp"
+            android:src="@drawable/ic_search">
+        </ImageView>
 
-        <Button
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_toRightOf="@id/keyword"
-            />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
 
-    </RelativeLayout>
+            <EditText
+                android:id="@+id/keyword"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:inputType="text"/>
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_height="24dp"
+            android:layout_width="24dp"
+            android:src="@drawable/ic_qrcode">
+        </ImageView>
+
+    </LinearLayout>
 </layout>
